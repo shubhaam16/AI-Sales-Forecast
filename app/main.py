@@ -4,8 +4,10 @@ from app.api.database import router as database_router
 from app.api.users import router as users_router
 from app.api.projects import router as project_router
 from app.api.upload import router as upload_router
-from app.database.database import Base,engine
+from app.api.model import router as  model_router
 
+
+from app.database.database import Base,engine
 Base.metadata.create_all(bind=engine)
 
 
@@ -20,6 +22,7 @@ app.include_router (database_router)
 app.include_router (users_router)
 app.include_router(project_router)
 app.include_router(upload_router)
+app.include_router(model_router)
 
 @app.get("/")
 def root():
