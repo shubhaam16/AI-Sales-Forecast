@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 
+
 router =APIRouter(
     prefix="/health",
     tags=["Health"]
@@ -9,5 +10,5 @@ router =APIRouter(
 def health():
     return {
         "status":"Backend Running",
-        "database" : "not connect yet"
+        "database" : "for database check database session "
     }

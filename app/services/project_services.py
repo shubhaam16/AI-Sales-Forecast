@@ -1,7 +1,5 @@
 from uuid import UUID
-
 from sqlalchemy.orm import Session
-
 from app.models.project import Project
 
 
@@ -13,11 +11,7 @@ class ProjectService:
 
     @staticmethod
     def get_project(db: Session, project_id: UUID):
-        return (
-            db.query(Project)
-            .filter(Project.id == project_id)
-            .first()
-        )
+        return (db.query(Project).filter(Project.id == project_id).first())
 
     @staticmethod
     def create_project(db: Session, project: Project):

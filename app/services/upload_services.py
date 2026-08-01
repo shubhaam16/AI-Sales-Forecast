@@ -16,11 +16,7 @@ from app.utils.dataset_cleaner import DatasetCleaner
 class UploadServices:
 
     @staticmethod
-    async def upload_file(
-        db: Session,
-        project_id: UUID,
-        file: UploadFile
-    ) -> UploadResponse:
+    async def upload_file(db: Session,project_id: UUID,file: UploadFile) -> UploadResponse:
 
         await FileValidator.validate(file)
 

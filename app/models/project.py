@@ -10,11 +10,7 @@ class Project(Base):
 
     id = Column(UUID(as_uuid=True), primary_key=True)
 
-    user_id = Column(
-        UUID(as_uuid=True),
-        ForeignKey("sales_app.users.id"),
-        nullable=False
-    )
+    user_id = Column(UUID(as_uuid=True),ForeignKey("sales_app.users.id"),nullable=False)
 
     project_name = Column(String(255), nullable=False)
 

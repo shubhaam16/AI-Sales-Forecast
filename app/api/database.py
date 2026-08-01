@@ -14,8 +14,13 @@ router = APIRouter (
 
 @router.get("/test")
 def test_database(db: Session = Depends(get_db)):
-    db.execute (text("SELECT 1"))
-
-    return {
-        "message ": "Database Connected Successfully "
-    }
+    try:
+        db.execute (text("SELECT 1"))
+        return {
+            "message ": "Database Connected Successfully "
+        }
+    except Exception as e :
+        return{
+            "message": "Error to connect the database ",
+            "error": str(e)
+        }
